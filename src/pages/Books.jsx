@@ -50,7 +50,7 @@ function Books() {
               Delete
             </button>
             <button className="update">
-              <Link to={`/update/${item.id}`}>Update</Link>
+              <Link to={`update/${item.id}`}>Update</Link>
             </button>
           </div>
         ))}

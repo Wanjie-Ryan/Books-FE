@@ -63,7 +63,7 @@ function Add() {
           value={cover}
           onChange={handleCover}
         />
-        <button onClick={handleClick}>Add</button>
+        <button onClick={handleClick} className='formButton'>Add</button>
       </div>
     </>
   );

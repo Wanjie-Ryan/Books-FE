@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 function Update() {
   const [title, setTitle] = useState();
@@ -19,6 +19,10 @@ function Update() {
   };
 
   const navigate = useNavigate();
+  const { id } = useParams();
+  const location = useLocation();
+  //   console.log(location)
+  //   console.log(id)
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -30,8 +34,8 @@ function Update() {
         cover: cover,
       };
 
-      const response = await axios.post(
-        "http://localhost:3003/bookdetails",
+      const response = await axios.put(
+        `http://localhost:3003/updatebook/${id}`,
         data
       );
       // console.log(response)
@@ -63,7 +67,9 @@ function Update() {
           value={cover}
           onChange={handleCover}
         />
-        <button onClick={handleClick}>Update</button>
+        <button onClick={handleClick} className="formButton">
+          Update
+        </button>
       </div>
     </>
   );
