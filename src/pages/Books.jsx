@@ -18,22 +18,19 @@ function Books() {
     fetchBooks();
   }, []);
 
-  const handleDelete = async(bookId)=>{
-
-    try{
-        const response = await axios.delete(`http://localhost:3003/deletebook/${bookId}`)
-        console.log(response)
-        window.location.reload()
-        // const newBooks = books.filter((item)=>item.id !== bookId)
-        // setBooks(newBooks)
-
-
+  const handleDelete = async (bookId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3003/deletebook/${bookId}`
+      );
+      console.log(response);
+      window.location.reload();
+      // const newBooks = books.filter((item)=>item.id !== bookId)
+      // setBooks(newBooks)
+    } catch (err) {
+      console.log(err);
     }
-
-    catch(err){
-        console.log(err)
-    }
-  }
+  };
   return (
     <>
       <h3>Wanjie Books Shop</h3>
@@ -44,8 +41,17 @@ function Books() {
             {item.cover && <img src={item.cover} alt="book-image" />}
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <button className="delete" onClick={()=>{handleDelete(item.id)}}>Delete</button>
-            <button className="update">Update</button>
+            <button
+              className="delete"
+              onClick={() => {
+                handleDelete(item.id);
+              }}
+            >
+              Delete
+            </button>
+            <button className="update">
+              <Link to={`/update/${item.id}`}>Update</Link>
+            </button>
           </div>
         ))}
       </div>
