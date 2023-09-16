@@ -28,6 +28,8 @@ function Books() {
             {item.cover && <img src={item.cover} alt="book-image" />}
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
+            <button className="delete">Delete</button>
+            <button className="update">Update</button>
           </div>
         ))}
       </div>
