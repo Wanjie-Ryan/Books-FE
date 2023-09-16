@@ -32,7 +32,19 @@ function Books (){
     return(
         <>
 
-            <h3>Hey</h3>
+            <h3>Wanjie Books Shop</h3>
+
+            <div className='books'>
+                {books.map((item)=>(
+                    <div className='book' key={item.id}>
+                        {item.cover && <img src={item.cover} alt='book-image'/>}
+                        <h2>{item.title}</h2>
+                        <p>{item.desc}</p>
+                    </div>
+
+                ))}
+            </div>
+            <button>Add New Book</button>
         
         </>
     )
