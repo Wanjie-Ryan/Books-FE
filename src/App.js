@@ -1,19 +1,21 @@
-import React from 'react'
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Books from "./pages/Books";
+import Add from "./pages/Add";
+import Update from "./pages/update";
 
-
-
-function App (){
-  return(
+function App() {
+  return (
     <>
-     <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={</>} />
-          </Routes>
+          <Route path="/" element={<Books />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/update" element={<Update />} />
+        </Routes>
       </BrowserRouter>
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;
